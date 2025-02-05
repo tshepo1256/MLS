@@ -1,0 +1,78 @@
+.contacts-container {
+  padding: 24px;
+}
+
+.contacts-header {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.contacts-filters {
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.contacts-table {
+  margin-top: 24px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  font-weight: 600;
+  background-color: #f5f5f5;
+}
+
+.MuiTableRow-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.MuiChip-root {
+  min-width: 80px;
+  justify-content: center;
+}
+
+.contact-form-container {
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form-paper {
+  padding: 24px;
+}
+
+.contact-details-container {
+  padding: 24px;
+}
+
+.contact-header {
+  margin-bottom: 24px;
+}
+
+.contact-info-section {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .contacts-container {
+    padding: 16px;
+  }
+
+  .contacts-header {
+    padding: 16px;
+  }
+
+  .filter-buttons {
+    justify-content: flex-start;
+    margin-top: 16px;
+  }
+
+  .contact-form-container {
+    padding: 16px;
+  }
+} 

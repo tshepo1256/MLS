@@ -1,0 +1,131 @@
+.matters-container {
+  padding: 24px;
+}
+
+.matters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.matters-filters {
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.matters-table {
+  margin-top: 24px;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  font-weight: 600;
+  background-color: #f5f5f5;
+}
+
+.MuiChip-root {
+  font-weight: 500;
+}
+
+.MuiTableRow-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.search-field {
+  background-color: white;
+}
+
+.action-button {
+  min-width: 32px;
+  padding: 6px;
+}
+
+.status-chip {
+  min-width: 80px;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .matters-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .filter-buttons {
+    justify-content: flex-start;
+  }
+}
+
+.matter-form-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.matter-form-paper {
+  padding: 24px;
+}
+
+.matter-form-paper .MuiTypography-h5 {
+  color: #1976d2;
+  margin-bottom: 16px;
+}
+
+.matter-form-paper .MuiTypography-h6 {
+  color: #666;
+  margin-top: 24px;
+}
+
+.matter-form-paper .MuiDivider-root {
+  margin: 16px 0;
+}
+
+.matter-form-paper .MuiGrid-container {
+  margin-top: 16px;
+}
+
+.matter-form-paper .MuiButton-root {
+  min-width: 120px;
+}
+
+.matter-form-paper .MuiFormControl-root {
+  width: 100%;
+}
+
+.matter-form-paper .MuiAutocomplete-root {
+  width: 100%;
+}
+
+/* Form section spacing */
+.form-section {
+  margin-bottom: 32px;
+}
+
+/* Field validation styles */
+.MuiTextField-root.error .MuiOutlinedInput-root {
+  border-color: #f44336;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  margin-left: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .matter-form-container {
+    padding: 16px;
+  }
+
+  .matter-form-paper {
+    padding: 16px;
+  }
+} 

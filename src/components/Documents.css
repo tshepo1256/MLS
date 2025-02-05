@@ -1,0 +1,81 @@
+#documents {
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .upload-section input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .upload-section button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .upload-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  .doc-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .doc-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .doc-card h3 {
+    font-size: 18px;
+  }
+  
+  .doc-card button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .doc-card button:hover {
+    background-color: #218838;
+  }
+  
+  .doc-viewer {
+    margin-top: 20px;
+  }
+  
+  .doc-viewer iframe {
+    border: 1px solid #ddd;
+  }
+  
+  canvas {
+    border: 1px solid #ddd;
+    width: 100%;
+  }
+  

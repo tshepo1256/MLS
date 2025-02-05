@@ -1,0 +1,21 @@
+/* Specific Styles for DocumentUpload Component */
+.document-upload {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .document-upload input[type="file"] {
+    background-color: #ecf0f1;
+  }
+  
+  .document-upload button {
+    background-color: #3498db;
+    width: 100%;
+  }
+  
+  .document-upload button:hover {
+    background-color: #2980b9;
+  }
+  

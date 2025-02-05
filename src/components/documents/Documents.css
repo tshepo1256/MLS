@@ -1,0 +1,237 @@
+.templates-container {
+  padding: 24px;
+}
+
+.templates-header {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.categories-paper {
+  padding: 16px;
+}
+
+.templates-list {
+  padding: 16px;
+}
+
+.template-form-container {
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.template-form-paper {
+  padding: 24px;
+}
+
+.MuiChip-root {
+  background-color: #e3f2fd;
+}
+
+.template-variables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.template-preview {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.template-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .templates-container {
+    padding: 16px;
+  }
+
+  .templates-header {
+    padding: 16px;
+  }
+
+  .template-form-container {
+    padding: 16px;
+  }
+}
+
+.document-generator {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.preview-content {
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.6;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.variable-field {
+  margin-bottom: 16px;
+}
+
+.variable-field label {
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.preview-dialog {
+  min-height: 60vh;
+}
+
+.preview-toolbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+@media print {
+  .preview-content {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .preview-toolbar {
+    display: none;
+  }
+}
+
+/* Template variables chip styles */
+.template-variable {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-family: monospace;
+}
+
+.template-variable:hover {
+  background-color: #bbdefb;
+}
+
+/* Document type indicators */
+.document-type-indicator {
+  width: 4px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #1976d2;
+}
+
+.document-type-court {
+  background-color: #f44336;
+}
+
+.document-type-contract {
+  background-color: #4caf50;
+}
+
+.document-type-letter {
+  background-color: #ff9800;
+}
+
+/* Template editor styles */
+.template-editor {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.5;
+}
+
+.template-editor .variable {
+  color: #1976d2;
+  background-color: #e3f2fd;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Variable suggestion dropdown */
+.variable-suggestion {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.variable-suggestion:hover {
+  background-color: #f5f5f5;
+}
+
+.variable-suggestion .description {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.template-editor-container {
+  padding: 24px;
+}
+
+.monaco-editor {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preview-content {
+  padding: 40px;
+  font-size: 14px;
+  line-height: 1.6;
+  background-color: white;
+  min-height: 60vh;
+}
+
+.variable-helper-category {
+  margin-bottom: 24px;
+}
+
+.variable-item {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.variable-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.template-editor-toolbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Monaco editor customizations */
+.monaco-editor .variable {
+  color: #1976d2 !important;
+  font-weight: bold;
+}
+
+.monaco-editor .keyword {
+  color: #0d47a1 !important;
+  font-weight: bold;
+}
+
+.monaco-editor .modal {
+  color: #2e7d32 !important;
+}
+
+.monaco-editor .date {
+  color: #c62828 !important;
+}
+
+.monaco-editor .string {
+  color: #6a1b9a !important;
+} 

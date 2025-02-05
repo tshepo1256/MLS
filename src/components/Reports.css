@@ -1,0 +1,21 @@
+/* Specific Styles for Reports Component */
+.reports {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .reports select {
+    background-color: #ecf0f1;
+  }
+  
+  .reports button {
+    background-color: #3498db;
+    width: 100%;
+  }
+  
+  .reports button:hover {
+    background-color: #2980b9;
+  }
+  

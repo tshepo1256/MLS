@@ -1,0 +1,39 @@
+.contact-list {
+    width: 300px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .contact-list h2 {
+    margin-bottom: 20px;
+  }
+  
+  .contact-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .contact-list li {
+    margin-bottom: 10px;
+  }
+  
+  .contact {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-name {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  
+  .contact:hover {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

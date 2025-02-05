@@ -1,0 +1,117 @@
+/* MatterList.css */
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.matter-list-container {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f4f9;
+  overflow-y: auto;
+}
+
+.matter-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.matter-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.matter-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.matter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.matter-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.matter-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.matter-importance {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filter-groups {
+  display: flex;
+  gap: 15px;
+}
+
+.status-filters, .importance-filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-button {
+  padding: 8px 12px;
+  background-color: #e0e4e8;
+  border: none;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-button:hover {
+  background-color: #d0dae1;
+  transform: translateY(-1px);
+}
+
+.filter-button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.create-matter-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.create-matter-button:hover {
+  background-color: #c0392b;
+}

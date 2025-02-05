@@ -1,0 +1,30 @@
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: #d1f7d1;
+  margin-left: auto;
+  text-align: right;
+}
+
+.message.other {
+  background-color: #f1f1f1;
+  margin-right: auto;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #777;
+}
+
+.message-body {
+  font-size: 16px;
+  margin-top: 5px;
+}

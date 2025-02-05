@@ -1,0 +1,75 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #1976d2 0%, #64b5f6 100%);
+}
+
+.auth-paper {
+  padding: 32px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px !important;
+}
+
+.auth-form {
+  margin-top: 24px;
+}
+
+.auth-link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.social-button {
+  height: 48px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  border-radius: 24px !important;
+}
+
+.social-button.google {
+  color: #ea4335 !important;
+  border-color: #ea4335 !important;
+}
+
+.social-button.google:hover {
+  background-color: rgba(234, 67, 53, 0.04) !important;
+}
+
+.social-button.apple {
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.social-button.apple:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.MuiTextField-root {
+  margin-bottom: 16px !important;
+}
+
+.MuiButton-contained {
+  border-radius: 24px !important;
+  height: 48px;
+  font-weight: 500 !important;
+  text-transform: none !important;
+}
+
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 16px;
+  }
+
+  .auth-paper {
+    padding: 24px;
+  }
+} 

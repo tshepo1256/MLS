@@ -1,0 +1,75 @@
+.matter-details-container {
+  padding: 24px;
+}
+
+.matter-header {
+  padding: 24px;
+  margin-bottom: 24px;
+  background-color: #fff;
+}
+
+.matter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.matter-content {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.matter-tabs {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+}
+
+.tab-panel {
+  padding: 24px;
+}
+
+.info-section {
+  padding: 24px;
+  height: 100%;
+}
+
+.quick-actions {
+  padding: 24px;
+}
+
+.MuiChip-root {
+  font-weight: 500;
+}
+
+.status-chip {
+  min-width: 80px;
+  justify-content: center;
+}
+
+.MuiTab-root {
+  text-transform: none;
+  min-height: 48px;
+}
+
+.MuiTab-root .MuiSvgIcon-root {
+  margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+  .matter-details-container {
+    padding: 16px;
+  }
+
+  .matter-header {
+    padding: 16px;
+  }
+
+  .matter-actions {
+    justify-content: flex-start;
+    margin-top: 16px;
+  }
+
+  .tab-panel {
+    padding: 16px;
+  }
+} 

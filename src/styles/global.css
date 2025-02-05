@@ -1,0 +1,265 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background-color: #f5f7fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Layout styles */
+.main-content {
+  padding: 24px;
+  margin-left: 240px; /* Match drawer width */
+  min-height: calc(100vh - 64px); /* Full height minus AppBar */
+  width: calc(100% - 240px);
+  max-width: 1600px; /* Maximum width for large screens */
+  margin: 0 auto;
+  transition: margin-left 0.3s ease;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+  
+  .content-container {
+    padding: 0 16px;
+  }
+}
+
+/* Common component styles */
+.page-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.section-paper {
+  padding: 24px;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-paper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.MuiButton-root {
+  text-transform: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.MuiButton-contained {
+  box-shadow: none !important;
+}
+
+.MuiButton-contained:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Card styles */
+.MuiCard-root {
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styles */
+.MuiTableContainer-root {
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  background-color: #f8fafc;
+  font-weight: 600;
+}
+
+.MuiTableRow-root:hover {
+  background-color: #f8fafc;
+}
+
+/* Form styles */
+.MuiTextField-root, .MuiSelect-root {
+  border-radius: 8px;
+}
+
+.MuiInputBase-root {
+  border-radius: 8px !important;
+}
+
+/* Dialog styles */
+.MuiDialog-paper {
+  border-radius: 12px !important;
+}
+
+/* Tabs styles */
+.MuiTab-root {
+  text-transform: none;
+  font-weight: 500;
+}
+
+/* Chip styles */
+.MuiChip-root {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* List styles */
+.MuiListItem-root {
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.MuiListItem-root:hover {
+  background-color: #f8fafc;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+[data-theme='dark'] .MuiPaper-root {
+  background-color: #1e1e1e;
+}
+
+[data-theme='dark'] .dashboard-paper,
+[data-theme='dark'] .section-paper {
+  background-color: #272727;
+}
+
+[data-theme='dark'] .MuiTableHead-root .MuiTableCell-root {
+  background-color: #272727;
+}
+
+[data-theme='dark'] .MuiTableRow-root:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme='dark'] .MuiListItem-root:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme='dark'] .status-chip {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Custom scrollbar for dark mode */
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Charts and data visualization dark mode */
+[data-theme='dark'] .recharts-cartesian-grid line {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .recharts-text {
+  fill: #b3b3b3;
+}
+
+/* Form fields dark mode */
+[data-theme='dark'] .MuiOutlinedInput-root {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Calendar dark mode */
+[data-theme='dark'] .fc {
+  background-color: #272727;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .fc-theme-standard td,
+[data-theme='dark'] .fc-theme-standard th {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .fc-day-today {
+  background-color: rgba(25, 118, 210, 0.12) !important;
+}
+
+/* Dialog dark mode */
+[data-theme='dark'] .MuiDialog-paper {
+  background-color: #272727;
+}
+
+/* Card hover effects */
+.MuiCard-root,
+.dashboard-paper,
+.section-paper {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.MuiCard-root:hover,
+.dashboard-paper:hover,
+.section-paper:hover {
+  transform: translateY(-2px);
+}
+
+[data-theme='dark'] .MuiCard-root:hover,
+[data-theme='dark'] .dashboard-paper:hover,
+[data-theme='dark'] .section-paper:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Add container styles */
+.content-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+ 

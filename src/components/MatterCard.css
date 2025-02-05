@@ -1,0 +1,77 @@
+/* MatterCard.css */
+.matter-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .matter-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .matter-card h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .matter-card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .matter-card p strong {
+    font-weight: bold;
+  }
+  
+  .matter-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .matter-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  .matter-card button:focus {
+    outline: none;
+  }
+  
+  .matter-card .matter-status {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  
+  .matter-card .matter-assigned {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 4px;
+  }
+  
+  .matter-card .matter-description {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: 12px;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+  }
+  

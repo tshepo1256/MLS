@@ -1,0 +1,36 @@
+.case-workshop-container {
+    padding: 20px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+  }
+  
+  .document-upload-section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .document-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .document-list .MuiGrid-item {
+    flex: 1;
+  }
+  
+  .MuiDialog-paper {
+    width: 80%;
+    max-width: 1200px;
+  }
+  
+  .MuiCard-root {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MuiButton-contained {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

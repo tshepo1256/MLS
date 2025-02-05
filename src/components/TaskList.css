@@ -1,0 +1,21 @@
+/* Specific Styles for TaskList Component */
+.task-list {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .task-list .task-items {
+    margin-top: 20px;
+  }
+  
+  .task-list button {
+    background-color: #3498db;
+    width: 100%;
+  }
+  
+  .task-list button:hover {
+    background-color: #2980b9;
+  }
+  
