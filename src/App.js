@@ -1,4 +1,5 @@
 import { CssBaseline } from '@mui/material';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from './components/common/ErrorBoundary';
@@ -11,9 +12,21 @@ import { ContactProvider } from './context/ContactContext';
 import { DocumentProvider } from './context/DocumentContext';
 import { LoadingProvider } from './context/LoadingContext';
 import { NotificationProvider } from './context/NotificationContext';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider, useThemeContext } from './context/ThemeContext';
 import AppRoutes from './routes';
 import './styles/global.css';
+
+// Wrapper component to handle theme switching
+const ThemeWrapper = ({ children }) => {
+  const { theme } = useThemeContext();
+  
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  );
+};
 
 function App() {
   useEffect(() => {
@@ -24,26 +37,27 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter>
         <ThemeProvider>
-          <CssBaseline />
-          <LoadingProvider>
-            <AuthProvider>
-              <NotificationProvider>
-                <ContactProvider>
-                  <CalendarProvider>
-                    <CaseProvider>
-                      <DocumentProvider>
-                        <BillingProvider>
-                          <MainLayout>
-                            <AppRoutes />
-                          </MainLayout>
-                        </BillingProvider>
-                      </DocumentProvider>
-                    </CaseProvider>
-                  </CalendarProvider>
-                </ContactProvider>
-              </NotificationProvider>
-            </AuthProvider>
-          </LoadingProvider>
+          <ThemeWrapper>
+            <LoadingProvider>
+              <AuthProvider>
+                <NotificationProvider>
+                  <ContactProvider>
+                    <CalendarProvider>
+                      <CaseProvider>
+                        <DocumentProvider>
+                          <BillingProvider>
+                            <MainLayout>
+                              <AppRoutes />
+                            </MainLayout>
+                          </BillingProvider>
+                        </DocumentProvider>
+                      </CaseProvider>
+                    </CalendarProvider>
+                  </ContactProvider>
+                </NotificationProvider>
+              </AuthProvider>
+            </LoadingProvider>
+          </ThemeWrapper>
         </ThemeProvider>
       </BrowserRouter>
     </ErrorBoundary>

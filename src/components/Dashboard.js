@@ -1,238 +1,272 @@
 import React from 'react';
 import {
   Box,
-  Grid,
   Card,
+  CardContent,
+  Grid,
   Typography,
-  IconButton,
-  Button,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
-  Chip,
-  Divider,
+  useTheme,
+  LinearProgress,
 } from '@mui/material';
 import {
-  Add as AddIcon,
-  Gavel as GavelIcon,
-  Event as EventIcon,
-  Description as DocumentIcon,
-  AttachMoney as MoneyIcon,
-  Person as PersonIcon,
-  Schedule as ScheduleIcon,
+  AccountBalance,
+  Assessment,
+  AttachMoney,
+  Description,
+  Event,
+  Gavel,
+  Schedule,
+  Task,
 } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { getMockData } from '../mock/mockData';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
+  const theme = useTheme();
+  const stats = getMockData('dashboardStats');
 
-  const summaryCards = [
-    { title: 'Active Cases', count: 24, icon: GavelIcon, color: '#FF69B4', path: '/matters' },
-    { title: 'Today\'s Tasks', count: 8, icon: ScheduleIcon, color: '#9370DB', path: '/tasks' },
-    { title: 'Pending Documents', count: 12, icon: DocumentIcon, color: '#87CEEB', path: '/documents' },
-    { title: 'Upcoming Hearings', count: 5, icon: EventIcon, color: '#98FB98', path: '/calendar' },
+  const dashboardItems = [
+    {
+      title: 'Active Cases',
+      value: stats.activeCases,
+      icon: Gavel,
+      color: theme.palette.primary.main,
+      link: '/matters',
+    },
+    {
+      title: 'Pending Tasks',
+      value: stats.pendingTasks,
+      icon: Task,
+      color: theme.palette.warning.main,
+      link: '/tasks',
+    },
+    {
+      title: 'Upcoming Deadlines',
+      value: stats.upcomingDeadlines,
+      icon: Schedule,
+      color: theme.palette.error.main,
+      link: '/calendar/deadlines',
+    },
+    {
+      title: 'Billable Hours',
+      value: stats.billableHours,
+      icon: Assessment,
+      color: theme.palette.success.main,
+      link: '/billing/time-tracking',
+    },
+    {
+      title: 'Revenue This Month',
+      value: stats.revenueThisMonth,
+      icon: AttachMoney,
+      color: theme.palette.info.main,
+      link: '/billing/reports',
+    },
+    {
+      title: 'Outstanding Payments',
+      value: stats.outstandingPayments,
+      icon: AccountBalance,
+      color: theme.palette.error.main,
+      link: '/billing/invoices',
+    },
+    {
+      title: 'Documents Processed',
+      value: stats.documentsProcessed,
+      icon: Description,
+      color: theme.palette.secondary.main,
+      link: '/documents',
+    },
+    {
+      title: 'Client Meetings',
+      value: stats.clientMeetings,
+      icon: Event,
+      color: theme.palette.primary.main,
+      link: '/calendar',
+    },
   ];
 
-  const recentActivities = [
-    {
-      id: 1,
-      type: 'case',
-      title: 'Smith vs. Johnson',
-      description: 'New document uploaded',
-      time: '2 hours ago',
-      avatar: 'https://ui-avatars.com/api/?name=Smith&background=FF69B4&color=fff',
-    },
-    {
-      id: 2,
-      type: 'task',
-      title: 'Contract Review',
-      description: 'Task completed by Emma Wilson',
-      time: '4 hours ago',
-      avatar: 'https://ui-avatars.com/api/?name=Emma+Wilson&background=9370DB&color=fff',
-    },
-    {
-      id: 3,
-      type: 'calendar',
-      title: 'Client Meeting',
-      description: 'Scheduled for tomorrow at 10:00 AM',
-      time: '5 hours ago',
-      avatar: 'https://ui-avatars.com/api/?name=Meeting&background=87CEEB&color=fff',
-    },
-  ];
-
-  const upcomingDeadlines = [
-    {
-      id: 1,
-      title: 'File Motion Response',
-      date: '2024-03-25',
-      priority: 'high',
-      case: 'Smith vs. Johnson',
-    },
-    {
-      id: 2,
-      title: 'Document Review',
-      date: '2024-03-26',
-      priority: 'medium',
-      case: 'Williams Estate',
-    },
-    {
-      id: 3,
-      title: 'Client Update',
-      date: '2024-03-27',
-      priority: 'low',
-      case: 'Chen Contract',
-    },
-  ];
-
-  const getPriorityColor = (priority) => {
-    switch (priority) {
-      case 'high':
-        return '#FF6B6B';
-      case 'medium':
-        return '#FFA07A';
-      case 'low':
-        return '#98FB98';
-      default:
-        return '#98FB98';
-    }
-  };
+  const tasks = getMockData('tasks');
+  const teamTasks = getMockData('teamTasks');
+  const recentAnalyses = getMockData('documentAnalysis')?.recentAnalyses || [];
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 4 }}>
-        <Typography variant="h4">Dashboard</Typography>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button
-            variant="contained"
-            startIcon={<AddIcon />}
-            onClick={() => navigate('/matters/new')}
-          >
-            New Case
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<PersonIcon />}
-            onClick={() => navigate('/clients')}
-          >
-            Add Client
-          </Button>
-        </Box>
-      </Box>
-
-      {/* Summary Cards */}
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {summaryCards.map((card) => (
-          <Grid item xs={12} sm={6} md={3} key={card.title}>
+      <Grid container spacing={3}>
+        {dashboardItems.map((item, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
             <Card
               sx={{
-                p: 3,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
+                height: '100%',
                 cursor: 'pointer',
                 '&:hover': {
-                  boxShadow: (theme) => theme.shadows[10],
-                  transform: 'translateY(-2px)',
-                  transition: 'all 0.3s ease',
+                  boxShadow: 6,
                 },
               }}
-              onClick={() => navigate(card.path)}
+              onClick={() => window.location.href = item.link}
             >
-              <Avatar
-                sx={{
-                  bgcolor: card.color,
-                  width: 56,
-                  height: 56,
-                  mb: 2,
-                }}
-              >
-                <card.icon />
-              </Avatar>
-              <Typography variant="h4" gutterBottom>
-                {card.count}
-              </Typography>
-              <Typography variant="subtitle1" color="text.secondary">
-                {card.title}
-              </Typography>
+              <CardContent>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    mb: 2,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 45,
+                      height: 45,
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      bgcolor: `${item.color}20`,
+                    }}
+                  >
+                    <item.icon sx={{ color: item.color }} />
+                  </Box>
+                  <Typography variant="h5" sx={{ color: item.color }}>
+                    {item.value}
+                  </Typography>
+                </Box>
+                <Typography variant="subtitle1" color="text.secondary">
+                  {item.title}
+                </Typography>
+              </CardContent>
             </Card>
           </Grid>
         ))}
-      </Grid>
 
-      <Grid container spacing={3}>
-        {/* Recent Activities */}
+        {/* Recent Tasks */}
         <Grid item xs={12} md={6}>
-          <Card sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>
-              Recent Activities
-            </Typography>
-            <List>
-              {recentActivities.map((activity) => (
-                <React.Fragment key={activity.id}>
-                  <ListItem>
-                    <ListItemAvatar>
-                      <Avatar src={activity.avatar} />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={activity.title}
-                      secondary={
-                        <Box>
-                          <Typography variant="body2" color="text.secondary">
-                            {activity.description}
-                          </Typography>
-                          <Typography variant="caption" color="text.secondary">
-                            {activity.time}
-                          </Typography>
-                        </Box>
-                      }
-                    />
-                  </ListItem>
-                  <Divider variant="inset" component="li" />
-                </React.Fragment>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Recent Tasks
+              </Typography>
+              {tasks.slice(0, 3).map((task) => (
+                <Box key={task.id} sx={{ mb: 2 }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      mb: 1,
+                    }}
+                  >
+                    <Typography variant="subtitle2">{task.title}</Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color:
+                          task.priority === 'High'
+                            ? 'error.main'
+                            : task.priority === 'Medium'
+                            ? 'warning.main'
+                            : 'success.main',
+                      }}
+                    >
+                      {task.priority}
+                    </Typography>
+                  </Box>
+                  <LinearProgress
+                    variant="determinate"
+                    value={task.checklist ? (task.checklist.filter(item => item.completed).length / task.checklist.length) * 100 : 0}
+                    sx={{ mb: 1 }}
+                  />
+                  <Typography variant="caption" color="text.secondary">
+                    Due: {task.dueDate}
+                  </Typography>
+                </Box>
               ))}
-            </List>
+            </CardContent>
           </Card>
         </Grid>
 
-        {/* Upcoming Deadlines */}
+        {/* Team Tasks */}
         <Grid item xs={12} md={6}>
-          <Card sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>
-              Upcoming Deadlines
-            </Typography>
-            <List>
-              {upcomingDeadlines.map((deadline) => (
-                <React.Fragment key={deadline.id}>
-                  <ListItem
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Team Tasks
+              </Typography>
+              {teamTasks.map((task) => (
+                <Box key={task.id} sx={{ mb: 2 }}>
+                  <Box
                     sx={{
-                      borderLeft: `4px solid ${getPriorityColor(deadline.priority)}`,
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      mb: 1,
                     }}
                   >
-                    <ListItemText
-                      primary={deadline.title}
-                      secondary={
-                        <Box>
-                          <Typography variant="body2" color="text.secondary">
-                            {deadline.case}
-                          </Typography>
-                          <Box sx={{ mt: 1 }}>
-                            <Chip
-                              icon={<EventIcon />}
-                              label={new Date(deadline.date).toLocaleDateString()}
-                              size="small"
-                              variant="outlined"
-                            />
-                          </Box>
-                        </Box>
-                      }
-                    />
-                  </ListItem>
-                  <Divider component="li" />
-                </React.Fragment>
+                    <Typography variant="subtitle2">{task.title}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {task.assignedTo.length} members
+                    </Typography>
+                  </Box>
+                  <Typography variant="body2" color="text.secondary" noWrap>
+                    {task.description}
+                  </Typography>
+                  <Typography variant="caption" color="text.secondary">
+                    Due: {task.dueDate}
+                  </Typography>
+                </Box>
               ))}
-            </List>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Recent Document Analyses */}
+        <Grid item xs={12}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Recent Document Analyses
+              </Typography>
+              <Grid container spacing={2}>
+                {recentAnalyses.map((analysis) => (
+                  <Grid item xs={12} md={6} key={analysis.id}>
+                    <Box
+                      sx={{
+                        p: 2,
+                        border: 1,
+                        borderColor: 'divider',
+                        borderRadius: 1,
+                      }}
+                    >
+                      <Typography variant="subtitle1" gutterBottom>
+                        {analysis.documentName}
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color:
+                            analysis.riskLevel === 'High'
+                              ? 'error.main'
+                              : analysis.riskLevel === 'Medium'
+                              ? 'warning.main'
+                              : 'success.main',
+                        }}
+                      >
+                        Risk Level: {analysis.riskLevel}
+                      </Typography>
+                      <Box sx={{ mt: 1 }}>
+                        <Typography variant="body2" color="text.secondary">
+                          Key Findings:
+                        </Typography>
+                        <ul style={{ margin: '4px 0', paddingLeft: '20px' }}>
+                          {analysis.findings.slice(0, 2).map((finding, index) => (
+                            <li key={index}>
+                              <Typography variant="caption">
+                                {finding}
+                              </Typography>
+                            </li>
+                          ))}
+                        </ul>
+                      </Box>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </CardContent>
           </Card>
         </Grid>
       </Grid>

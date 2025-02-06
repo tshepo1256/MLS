@@ -10,6 +10,7 @@ import {
     Group as GroupIcon,
     LocalLibrary as LibraryIcon,
     Task as TaskIcon,
+    Message as MessageIcon,
 } from '@mui/icons-material';
 
 export const navigationConfig = [
@@ -17,6 +18,11 @@ export const navigationConfig = [
     title: 'Dashboard',
     path: '/',
     icon: Dashboard,
+  },
+  {
+    title: 'Messages',
+    path: '/messages',
+    icon: MessageIcon,
   },
   {
     title: 'Matters',
@@ -164,6 +170,10 @@ export const navigationConfig = [
       {
         title: 'Templates',
         path: '/documents/templates',
+      },
+      {
+        title: 'Document Sharing',
+        path: '/documents/sharing',
       },
       {
         title: 'E-Signatures',

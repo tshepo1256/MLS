@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import {
   Box,
   Card,
@@ -296,84 +297,96 @@ const TimeTracking = () => {
           {selectedEntry ? 'Edit Time Entry' : 'Add Time Entry'}
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={3} sx={{ mt: 1 }}>
-            <Grid item xs={12} md={6}>
-              <FormControl fullWidth>
-                <InputLabel>Matter</InputLabel>
-                <Select
-                  label="Matter"
-                  defaultValue={selectedEntry?.matter || ''}
-                >
-                  <MenuItem value="Smith vs. Johnson">Smith vs. Johnson</MenuItem>
-                  <MenuItem value="Williams Estate">Williams Estate</MenuItem>
-                  <MenuItem value="Chen Contract Review">
-                    Chen Contract Review
-                  </MenuItem>
-                </Select>
-              </FormControl>
+          <Box component="form" sx={{ mt: 1 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel id="matter-label">Matter</InputLabel>
+                  <Select
+                    labelId="matter-label"
+                    label="Matter"
+                    defaultValue={selectedEntry?.matter || ''}
+                    name="matter"
+                  >
+                    <MenuItem value="Smith vs. Johnson">Smith vs. Johnson</MenuItem>
+                    <MenuItem value="Williams Estate">Williams Estate</MenuItem>
+                    <MenuItem value="Chen Contract Review">Chen Contract Review</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Activity"
+                  name="activity"
+                  defaultValue={selectedEntry?.activity}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Date"
+                  type="date"
+                  name="date"
+                  defaultValue={selectedEntry?.date}
+                  InputLabelProps={{ shrink: true }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Duration (minutes)"
+                  type="number"
+                  name="duration"
+                  defaultValue={selectedEntry?.duration}
+                  inputProps={{ min: 0 }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Rate (per hour)"
+                  type="number"
+                  name="rate"
+                  defaultValue={selectedEntry?.rate}
+                  InputProps={{
+                    startAdornment: 'R',
+                  }}
+                  inputProps={{ min: 0, step: "0.01" }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel id="status-label">Status</InputLabel>
+                  <Select
+                    labelId="status-label"
+                    label="Status"
+                    name="status"
+                    defaultValue={selectedEntry?.status || 'unbilled'}
+                  >
+                    <MenuItem value="unbilled">Unbilled</MenuItem>
+                    <MenuItem value="billed">Billed</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                label="Activity"
-                defaultValue={selectedEntry?.activity}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                label="Date"
-                type="date"
-                defaultValue={selectedEntry?.date}
-                InputLabelProps={{ shrink: true }}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                label="Duration (minutes)"
-                type="number"
-                defaultValue={selectedEntry?.duration}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                label="Rate (per hour)"
-                type="number"
-                defaultValue={selectedEntry?.rate}
-                InputProps={{
-                  startAdornment: 'R',
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <FormControl fullWidth>
-                <InputLabel>Status</InputLabel>
-                <Select
-                  label="Status"
-                  defaultValue={selectedEntry?.status || 'unbilled'}
-                >
-                  <MenuItem value="unbilled">Unbilled</MenuItem>
-                  <MenuItem value="billed">Billed</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-          </Grid>
+          </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDialogClose}>Cancel</Button>
           <Button 
             variant="contained" 
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+              const form = e.target.closest('form');
               const formData = {
-                matter: document.querySelector('[name="matter"]').value,
-                activity: document.querySelector('[name="activity"]').value,
-                date: document.querySelector('[name="date"]').value,
-                duration: parseInt(document.querySelector('[name="duration"]').value),
-                rate: parseFloat(document.querySelector('[name="rate"]').value),
-                status: document.querySelector('[name="status"]').value,
-                attorney: 'Emma Wilson', // Default for now
+                matter: form.matter.value,
+                activity: form.activity.value,
+                date: form.date.value,
+                duration: parseInt(form.duration.value, 10),
+                rate: parseFloat(form.rate.value),
+                status: form.status.value,
+                attorney: 'Emma Wilson',
               };
               
               if (selectedEntry) {

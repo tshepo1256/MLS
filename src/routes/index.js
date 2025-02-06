@@ -14,6 +14,8 @@ const MatterDetails = React.lazy(() => import('../components/matters/MatterDetai
 const Calendar = React.lazy(() => import('../components/calendar/Calendar'));
 const DocumentLibrary = React.lazy(() => import('../components/documents/CaseDocuments'));
 const Templates = React.lazy(() => import('../components/documents/DocumentTemplates'));
+const DocumentSharing = React.lazy(() => import('../components/documents/DocumentSharing'));
+const ESignature = React.lazy(() => import('../components/documents/ESignature'));
 const Invoices = React.lazy(() => import('../components/billing/BillingInvoices'));
 const TimeTracking = React.lazy(() => import('../components/billing/TimeTracking'));
 const BillingPreferences = React.lazy(() => import('../components/billing/BillingPreference'));
@@ -25,6 +27,7 @@ const ClientPortal = React.lazy(() => import('../components/client/ClientPortal'
 const TaskManagement = React.lazy(() => import('../components/tasks/TaskManagement'));
 const TeamManagement = React.lazy(() => import('../components/team/TeamManagement'));
 const Timeline = React.lazy(() => import('../components/timeline/Timeline'));
+const Messages = React.lazy(() => import('../components/messages/Messages'));
 
 // Wrap Suspense around components
 const SuspenseWrapper = ({ children }) => (
@@ -44,6 +47,7 @@ const AppRoutes = () => {
       {/* Protected routes */}
       <Route element={<RouteGuard><Outlet /></RouteGuard>}>
         <Route path="/" element={<SuspenseWrapper><Dashboard /></SuspenseWrapper>} />
+        <Route path="/messages" element={<SuspenseWrapper><Messages /></SuspenseWrapper>} />
 
         {/* Matters routes */}
         <Route path="matters" element={<Outlet />}>
@@ -99,7 +103,8 @@ const AppRoutes = () => {
         <Route path="documents" element={<Outlet />}>
           <Route index element={<SuspenseWrapper><DocumentLibrary /></SuspenseWrapper>} />
           <Route path="templates" element={<SuspenseWrapper><Templates /></SuspenseWrapper>} />
-          <Route path="signatures" element={<SuspenseWrapper><DocumentLibrary /></SuspenseWrapper>} />
+          <Route path="sharing" element={<SuspenseWrapper><DocumentSharing /></SuspenseWrapper>} />
+          <Route path="signatures" element={<SuspenseWrapper><ESignature /></SuspenseWrapper>} />
           <Route path="timeline" element={<SuspenseWrapper><Timeline type="documents" /></SuspenseWrapper>} />
         </Route>
 

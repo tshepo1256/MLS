@@ -1,65 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
-const lightTheme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#FF69B4', // A sophisticated pink
-      light: '#FFB6C1',
-      dark: '#DB7093',
-    },
-    secondary: {
-      main: '#9370DB', // Soft purple
-      light: '#E6E6FA',
-      dark: '#663399',
-    },
-    background: {
-      default: '#FFF5F7',
-      paper: '#FFFFFF',
-    },
-    text: {
-      primary: '#2C1810',
-      secondary: '#6B4F4F',
-    },
-    error: {
-      main: '#FF6B6B',
-    },
-    warning: {
-      main: '#FFA07A',
-    },
-    info: {
-      main: '#87CEEB',
-    },
-    success: {
-      main: '#98FB98',
-    },
-  },
+// Common theme settings
+const commonThemeSettings = {
   typography: {
     fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
-    h1: {
-      fontWeight: 600,
-      letterSpacing: 0.5,
-    },
-    h2: {
-      fontWeight: 600,
-      letterSpacing: 0.5,
-    },
-    h3: {
-      fontWeight: 600,
-      letterSpacing: 0.5,
-    },
-    h4: {
-      fontWeight: 500,
-      letterSpacing: 0.4,
-    },
-    h5: {
-      fontWeight: 500,
-      letterSpacing: 0.4,
-    },
-    h6: {
-      fontWeight: 500,
-      letterSpacing: 0.3,
-    },
+    h1: { fontWeight: 600, letterSpacing: 0.5 },
+    h2: { fontWeight: 600, letterSpacing: 0.5 },
+    h3: { fontWeight: 600, letterSpacing: 0.5 },
+    h4: { fontWeight: 500, letterSpacing: 0.4 },
+    h5: { fontWeight: 500, letterSpacing: 0.4 },
+    h6: { fontWeight: 500, letterSpacing: 0.3 },
   },
   shape: {
     borderRadius: 12,
@@ -73,19 +23,12 @@ const lightTheme = createTheme({
           fontWeight: 500,
           padding: '8px 24px',
         },
-        contained: {
-          boxShadow: '0 4px 12px rgba(255, 105, 180, 0.15)',
-          '&:hover': {
-            boxShadow: '0 6px 16px rgba(255, 105, 180, 0.25)',
-          },
-        },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
           borderRadius: 16,
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
         },
       },
     },
@@ -96,13 +39,63 @@ const lightTheme = createTheme({
         },
       },
     },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          backgroundImage: 'linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 100%)',
-        },
-      },
+  },
+};
+
+// Light theme
+export const lightTheme = createTheme({
+  ...commonThemeSettings,
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#FF69B4', // Pink
+      light: '#FFB6C1',
+      dark: '#DB7093',
+      contrastText: '#FFFFFF',
     },
+    secondary: {
+      main: '#9370DB', // Purple
+      light: '#E6E6FA',
+      dark: '#663399',
+      contrastText: '#FFFFFF',
+    },
+    background: {
+      default: '#FFF5F7',
+      paper: '#FFFFFF',
+    },
+    text: {
+      primary: '#2C1810',
+      secondary: '#6B4F4F',
+    },
+    error: {
+      main: '#FF6B6B',
+      light: '#FFB2B2',
+      dark: '#CC5555',
+    },
+    warning: {
+      main: '#FFA07A',
+      light: '#FFD1B2',
+      dark: '#CC8062',
+    },
+    info: {
+      main: '#87CEEB',
+      light: '#B2E2F2',
+      dark: '#6CA5BC',
+    },
+    success: {
+      main: '#98FB98',
+      light: '#C2FDC2',
+      dark: '#79C979',
+    },
+    action: {
+      hover: 'rgba(255, 105, 180, 0.08)',
+      selected: 'rgba(255, 105, 180, 0.16)',
+      disabled: 'rgba(0, 0, 0, 0.26)',
+      disabledBackground: 'rgba(0, 0, 0, 0.12)',
+    },
+  },
+  components: {
+    ...commonThemeSettings.components,
     MuiAppBar: {
       styleOverrides: {
         root: {
@@ -111,80 +104,96 @@ const lightTheme = createTheme({
         },
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundImage: 'linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 100%)',
+          borderRight: '1px solid rgba(0, 0, 0, 0.12)',
+        },
+      },
+    },
   },
 });
 
-const darkTheme = createTheme({
+// Dark theme
+export const darkTheme = createTheme({
+  ...commonThemeSettings,
   palette: {
     mode: 'dark',
     primary: {
       main: '#FF69B4',
       light: '#FFB6C1',
       dark: '#DB7093',
+      contrastText: '#FFFFFF',
     },
     secondary: {
       main: '#9370DB',
       light: '#E6E6FA',
       dark: '#663399',
+      contrastText: '#FFFFFF',
     },
     background: {
-      default: '#1A1A1A',
-      paper: '#2D2D2D',
+      default: '#121212',
+      paper: '#1E1E1E',
     },
     text: {
       primary: '#FFFFFF',
       secondary: '#B0B0B0',
     },
+    error: {
+      main: '#FF6B6B',
+      light: '#FFB2B2',
+      dark: '#CC5555',
+    },
+    warning: {
+      main: '#FFA07A',
+      light: '#FFD1B2',
+      dark: '#CC8062',
+    },
+    info: {
+      main: '#87CEEB',
+      light: '#B2E2F2',
+      dark: '#6CA5BC',
+    },
+    success: {
+      main: '#98FB98',
+      light: '#C2FDC2',
+      dark: '#79C979',
+    },
     action: {
-      hover: 'rgba(255, 105, 180, 0.12)', // Customized hover color for dark mode
-      selected: 'rgba(255, 105, 180, 0.16)', // Customized selected color for dark mode
+      hover: 'rgba(255, 105, 180, 0.12)',
+      selected: 'rgba(255, 105, 180, 0.16)',
+      disabled: 'rgba(255, 255, 255, 0.3)',
+      disabledBackground: 'rgba(255, 255, 255, 0.12)',
     },
   },
   components: {
-    MuiDrawer: {
+    ...commonThemeSettings.components,
+    MuiAppBar: {
       styleOverrides: {
-        paper: {
+        root: {
+          backgroundColor: '#1E1E1E',
           backgroundImage: 'none',
-          backgroundColor: '#1A1A1A',
-          borderRight: '1px solid rgba(255, 255, 255, 0.12)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
         },
       },
     },
-    MuiListItemButton: {
+    MuiDrawer: {
       styleOverrides: {
-        root: {
-          '&.Mui-selected': {
-            backgroundColor: 'rgba(255, 105, 180, 0.16)',
-            '&:hover': {
-              backgroundColor: 'rgba(255, 105, 180, 0.24)',
-            },
-          },
-          '&:hover': {
-            backgroundColor: 'rgba(255, 105, 180, 0.08)',
-          },
+        paper: {
+          backgroundColor: '#1E1E1E',
+          backgroundImage: 'none',
+          borderRight: '1px solid rgba(255, 255, 255, 0.12)',
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
-          backgroundColor: '#2D2D2D',
-        },
-      },
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundImage: 'none',
-          backgroundColor: '#2D2D2D',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+          backgroundColor: '#1E1E1E',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
         },
       },
     },
   },
-  // Inherit other properties from light theme
-  ...lightTheme,
-});
-
-export { lightTheme, darkTheme }; 
+}); 
